@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const DATA_URL = "./data/targets.json?v=20260731-2";
+  const DATA_URL = "./data/targets.json?v=20260901-1";
   const storageThemeKey = "target-builder-theme";
   const genericEvidence = ["Tutor observation", "Learner work", "ProMonitor record", "Learner discussion", "Custom"];
   const genericReviewers = ["Personal tutor", "Subject lecturer", "Success Coach", "Curriculum lead", "English or maths lecturer", "Work experience coordinator", "Custom"];
@@ -202,7 +202,7 @@
     state.manuallyEdited = false;
     $("#action").value = issue.action || "";
     populateChoices(issue);
-    populateSelect("#evidence", category.evidenceOptions || genericEvidence);
+    populateSelect("#evidence", issue.evidenceOptions || category.evidenceOptions || genericEvidence);
     populateSelect("#reviewer", category.reviewerOptions || genericReviewers);
     setRecommendedDuration(issue.duration);
     updateContext();
@@ -275,7 +275,7 @@
   };
 
   const reviewerPhrase = (value) => {
-    const text = lowerFirst(value || "appropriate member of staff");
+    const text = lowerFirst(value || "appropriate member of staff").replace(/^english\b/, "English");
     return /^(the|your|a|an)\b/.test(text) ? text : `your ${text}`;
   };
 
