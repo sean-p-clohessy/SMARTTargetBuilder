@@ -29,7 +29,13 @@ It helps a lecturer move from a broad concern—such as poor attendance, missed 
 - `app.js` — navigation, validation, search and rule-based target generation
 - `data/targets.json` — categories, issues and recommended target components
 
-There are no npm packages, build steps, cookies, analytics or server-side components.
+There are no npm packages, build steps or server-side components. The published site loads an account-free visit counter separately from target generation.
+
+## Visits counter
+
+The published page displays a small Hits badge, with its own total at https://hits.sh/sean-p-clohessy.github.io/SMARTTargetBuilder/. No account or API key is required. Tracking starts on 9 October 2026; prior traffic cannot be recovered. Totals are approximate: repeated loads, caching, blockers and bots affect the count.
+
+`visits.js` requests one fixed badge image per page load only on this project's published GitHub Pages address. It does not read learner fields, query strings, browser storage or generated content, and the image uses `referrerpolicy="no-referrer"`. Hits receives the normal network request (including the visitor's IP address). No third-party script is loaded. The badge stays hidden if unavailable, is excluded from printing, and local previews do not count. Do not poll it, since a new image request may increment the total.
 
 ## Run locally
 

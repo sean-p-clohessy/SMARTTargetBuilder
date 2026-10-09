@@ -1,0 +1,6 @@
+.visits-counter { font-size: .75rem; color: var(--muted); margin-block: 1rem 0; }
+.visits-counter[hidden] { display: none !important; }
+.visits-counter a { display: inline-flex; align-items: center; min-height: 24px; }
+.visits-counter img { display: block; max-width: 100%; }
+.visits-counter small { display: block; margin-top: .25rem; font-size: inherit; }
+@media print { .visits-counter { display: none !important; } }
