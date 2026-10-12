@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const DATA_URL = "./data/targets.json?v=20260901-1";
+  const DATA_URL = "./data/targets.json?v=20261012-2";
   const storageThemeKey = "target-builder-theme";
   const genericEvidence = ["Tutor observation", "Learner work", "ProMonitor record", "Learner discussion", "Custom"];
   const genericReviewers = ["Personal tutor", "Subject lecturer", "Success Coach", "Curriculum lead", "English or maths lecturer", "Work experience coordinator", "Custom"];
@@ -148,8 +148,12 @@
       const button = document.createElement("button");
       button.type = "button";
       button.className = "issue-card";
+      const intentLabel = issue.intent === "maintain" ? "Maintain" : issue.intent === "extend" ? "Extend" : "";
       button.innerHTML = `
-        <span class="tag">${escapeHTML(categoryName)}</span>
+        <span class="issue-tags">
+          <span class="tag">${escapeHTML(categoryName)}</span>
+          ${intentLabel ? `<span class="intent-tag intent-${escapeHTML(issue.intent)}">${intentLabel}</span>` : ""}
+        </span>
         <strong>${escapeHTML(issue.issue)}</strong>
         <small>${escapeHTML(issue.title)}</small>`;
       button.addEventListener("click", () => selectIssue(issue.categoryId || state.selectedCategory?.id, issue.id));
