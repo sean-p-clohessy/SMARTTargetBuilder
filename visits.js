@@ -7,5 +7,5 @@
   if (!counter || !badge) return;
   badge.addEventListener('load', () => { counter.hidden = false; }, { once: true });
   badge.addEventListener('error', () => { counter.hidden = true; }, { once: true });
-  badge.src = 'https://hits.sh/sean-p-clohessy.github.io/SMARTTargetBuilder.svg?label=Visits&color=6950d8&labelColor=201946';
+  badge.src = 'https://hits.sh/sean-p-clohessy.github.io/SMARTTargetBuilder.svg?label=Visits&color=0066d6&labelColor=1d1d1f';
 })();

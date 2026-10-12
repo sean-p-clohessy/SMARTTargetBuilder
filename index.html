@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Create clear, measurable SMART learner targets locally in your browser.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2f2f7">
   <title>SMART Target Builder</title>
   <script>
     try {
@@ -11,7 +13,7 @@
       if (savedTheme === "dark" || savedTheme === "light") document.documentElement.dataset.theme = savedTheme;
     } catch {}
   </script>
-  <link rel="stylesheet" href="./styles.css?v=20260901-1">
+  <link rel="stylesheet" href="./styles.css?v=20261012-1">
   <link rel="stylesheet" href="./visits.css">
 </head>
 <body>
@@ -23,9 +25,8 @@
       <span><strong>SMART Target Builder</strong><small>ProMonitor-ready learner targets</small></span>
     </a>
     <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-      <span class="theme-symbol" aria-hidden="true">◐</span>
-      <span data-theme-label>Light mode</span>
-      <span class="toggle-track" aria-hidden="true"><span class="toggle-dot"></span></span>
+      <span class="theme-symbol" aria-hidden="true">☾</span>
+      <span data-theme-label>Dark appearance</span>
     </button>
   </header>
 
@@ -254,7 +255,7 @@
   </footer>
 
   <div class="toast" data-toast role="status" aria-live="polite" aria-atomic="true"></div>
-  <script src="./app.js?v=20260901-1" defer></script>
+  <script src="./app.js?v=20261012-1" defer></script>
   <script src="./visits.js" defer></script>
 </body>
 </html>

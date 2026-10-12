@@ -88,8 +88,10 @@
     const button = $("[data-theme-toggle]");
     const isDark = theme === "dark";
     button.setAttribute("aria-pressed", String(isDark));
-    button.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
-    $("[data-theme-label]").textContent = isDark ? "Dark mode" : "Light mode";
+    button.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} appearance`);
+    $(".theme-symbol").textContent = isDark ? "☀" : "☾";
+    $("[data-theme-label]").textContent = isDark ? "Light appearance" : "Dark appearance";
+    document.querySelector('meta[name="theme-color"]').content = isDark ? "#000000" : "#f2f2f7";
   };
 
   const initialiseTheme = () => {
@@ -97,7 +99,7 @@
     if (!theme) {
       try { theme = localStorage.getItem(storageThemeKey); } catch {}
     }
-    applyTheme(theme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+    applyTheme(theme || "light");
   };
 
   const showView = (name, options = {}) => {
@@ -106,7 +108,7 @@
     state.currentView = name;
     if (options.scroll !== false) {
       const view = $(`[data-view="${name}"]`);
-      view?.scrollIntoView({ behavior: "smooth", block: "start" });
+      view?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     }
   };
 
